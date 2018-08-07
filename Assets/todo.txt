@@ -1,0 +1,31 @@
+done:
+merge
+submit
+
+
+
+
+visuals: 0 to 10
+obstacles: 11 to 17
+level complete text 18-20
+player: 21 to 25
+canvas: 100
+
+
+patterns
+layering visual and obstacles
+tagging
+obstacles should be tagged and kinematic rigidbody triggers
+
+improve levels
+remove not required objects/components
+profiler
+
+extra:
+extra:
+sprite packing
+whole button click in shop
+
+custom colliders of all levels
+improve color change + spawn new pattern call
+viewport elements
