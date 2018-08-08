@@ -14,28 +14,42 @@ public class SkyRiseAds : MonoBehaviour {
 	Action OnRewardedInterClosed;
 	Action OnRewardedInterFailed;
 	public bool AdsRemoved { get; private set; }
+	#if UNITY_IOS
 	bool IsInit;
+	#endif
 
 	void Awake() {
 		if (LaunchManager.IsFirstLaunchForCurrentSession) {
 			AdsRemoved = PlayerPrefs.GetInt ("RemoveAds", 0) == 1;
 			DontDestroyOnLoad (gameObject);
 			instance = this;
+			#if UNITY_ANDROID
+			AppLovin.SetSdkKey (SDK_KEY);
+			AppLovin.InitializeSdk ();
+			AppLovin.SetUnityAdListener (gameObject.name);
+			if (!AdsRemoved) {
+				AppLovin.PreloadInterstitial ();
+				ShowBanner ();
+			}
+			AppLovin.LoadRewardedInterstitial ();
+			#elif UNITY_IOS
 			if (!LaunchManager.IsFirstSession) {
 				Init ();
 			}
+			#endif
 		} else {
+			#if UNITY_IOS
 			if (!SkyRiseAds.instance.IsInit) {
 				SkyRiseAds.instance.Init ();
 			}
+			#endif
 			Destroy (gameObject);
 		}
-		Debug.Log ("skya");
 	}
 
+	#if UNITY_IOS
 	public void Init () {
 		if (!IsInit) {
-			Debug.Log ("skyi");
 			AppLovin.SetSdkKey (SDK_KEY);
 			AppLovin.InitializeSdk ();
 			AppLovin.SetUnityAdListener (gameObject.name);
@@ -48,6 +62,7 @@ public class SkyRiseAds : MonoBehaviour {
 			AppLovin.LoadRewardedInterstitial ();
 		}
 	}
+	#endif
 	
 	void ShowInterstitial (Action OnInterClosed)
 	{
@@ -58,9 +73,11 @@ public class SkyRiseAds : MonoBehaviour {
 	}
 
 	public bool IsRewarededInterLoaded() {
+		#if UNITY_IOS
 		if (!IsInit) {
 			return false;
 		}
+		#endif
 		return AppLovin.IsIncentInterstitialReady ();
 	}
 
@@ -89,14 +106,24 @@ public class SkyRiseAds : MonoBehaviour {
 	{
 		Debug.Log(value);
 		switch (value) {
+
+		#if UNITY_IOS
 		case "HIDDENREWARDED":
 			Music.instance.UnPause ();
 			OnRewardedInterClosed ();
 			AppLovin.LoadRewardedInterstitial ();
 			break;
+		#elif UNITY_ANDROID
+		case "REWARDAPPROVED":
+			OnRewardedInterClosed ();
+			AppLovin.LoadRewardedInterstitial ();
+			break;
+		#endif
 
 		case "HIDDENINTER":
+		#if UNITY_IOS
 			Music.instance.UnPause ();
+		#endif
 			if (OnInterClosed != null) {
 				OnInterClosed ();
 			}
@@ -108,16 +135,21 @@ public class SkyRiseAds : MonoBehaviour {
 		case "REWARDTIMEOUT":
 			OnRewardedInterFailed ();
 			break;
-		
+
+		#if UNITY_IOS
 		case "DISPLAYEDREWARDED":
 		case "DISPLAYEDINTER":
 			Music.instance.Pause ();
 			break;
+		#endif
+		
 		}
 	}
 
 	public void OnGameOver(Action Success = null) {
+		#if UNITY_IOS
 		if (IsInit) {
+		#endif
 			if (!AdsRemoved) {
 				gameOverCount++;
 				Debug.Log ("GCO: " + gameOverCount);
@@ -129,11 +161,13 @@ public class SkyRiseAds : MonoBehaviour {
 					}
 				}
 			}
+		#if UNITY_IOS
 		} else {
 			if (Success != null) {
 				Success ();
 			}
 		}
+		#endif
 	}
 
 	void SaveData() {

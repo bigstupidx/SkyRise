@@ -87,7 +87,7 @@ public class Player : MonoBehaviour {
 						Move ();
 					} else if (tutorial.state == 1) {
 						Rotate ();
-					} else {
+					} else if (!isTutorialOver) {
 						Stop ();
 					}
 				} else {

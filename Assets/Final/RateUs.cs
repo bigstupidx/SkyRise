@@ -8,8 +8,8 @@ public class RateUs : MonoBehaviour {
 		UIManager.instance.rateUsState = RateUsState.Rated;
 		#if UNITY_IOS
 		Application.OpenURL("https://itunes.apple.com/app/skyrise/id1406523387?mt=8");
-		#else
-		Application.OpenURL("https://play.google.com/store/apps/details?id=com.skyrise.peterdoyle");
+		#elif UNITY_ANDROID
+		Application.OpenURL("https://play.google.com/store/apps/details?id=com.skyrise.peterdoyle1");
 		#endif
 	}
 

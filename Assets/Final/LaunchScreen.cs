@@ -20,19 +20,23 @@ public class LaunchScreen : MonoBehaviour {
 	AudioSource audioSource;
 
 	void Awake () {
-//		if (LaunchManager.IsFirstLaunchForCurrentSession) {
-//			PlayerPrefs.DeleteAll ();
-			LaunchManager.IsFirstSession = !PlayerPrefs.HasKey ("Launch");
-			if (LaunchManager.IsFirstSession) {
-				PlayerPrefs.SetInt ("Launch", 1);
-				audioSource.Stop ();
-				SceneManager.LoadScene (1);
-			}
-//		}
+		LaunchManager.IsFirstSession = !PlayerPrefs.HasKey ("Launch");
+		#if UNITY_ANDROID
+		PlayerPrefs.SetInt ("Launch", 1);
+		#elif UNITY_IOS
+		if (LaunchManager.IsFirstSession) {
+			PlayerPrefs.SetInt ("Launch", 1);
+			audioSource.Stop ();
+			SceneManager.LoadScene (1);
+		}
+		#endif
 	}
 
 	void Start() {
 		mute.sprite = Music.instance.isMute ? muteOn : muteOff;
+		#if UNITY_ANDROID
+		LaunchManager.IsFirstLaunchForCurrentSession = false;
+		#endif
 	}
 
 	public void Play() {

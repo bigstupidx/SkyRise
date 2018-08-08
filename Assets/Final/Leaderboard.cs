@@ -17,7 +17,7 @@ public class Leaderboard : MonoBehaviour {
 		instance = this;
 		#if UNITY_ANDROID
 		PlayGamesPlatform.Activate ();
-		leaderboardID = GoogleLeaderboard.leaderboard_score;
+		leaderboardID = GoogleLeaderboard.leaderboard_high_score;
 		#elif UNITY_IOS
 		leaderboardID = "com.skyrise.score";
 		#endif
@@ -25,7 +25,9 @@ public class Leaderboard : MonoBehaviour {
 			Social.localUser.Authenticate (OnAuthentication);
 		}
 		Debug.Log ("la");
+		#if UNITY_IOS
 		LaunchManager.IsFirstLaunchForCurrentSession = false;
+		#endif
 	}
 
 	public void PostScore(int value) {
@@ -34,12 +36,20 @@ public class Leaderboard : MonoBehaviour {
 
 	public void ShowLeadeboard() {
 		if (Social.localUser.authenticated) {
+			#if UNITY_ANDROID
+			PlayGamesPlatform.Instance.ShowLeaderboardUI (GoogleLeaderboard.leaderboard_high_score);
+			#elif UNITY_IOS
 			GameCenterPlatform.ShowLeaderboardUI (leaderboardID, TimeScope.AllTime);
+			#endif
 		} else {
 			Social.localUser.Authenticate (
 				success => {
 					if(success) {
+						#if UNITY_ANDROID
+						PlayGamesPlatform.Instance.ShowLeaderboardUI (GoogleLeaderboard.leaderboard_high_score);
+						#elif UNITY_IOS
 						GameCenterPlatform.ShowLeaderboardUI (leaderboardID, TimeScope.AllTime);
+						#endif
 					}
 			});
 		}

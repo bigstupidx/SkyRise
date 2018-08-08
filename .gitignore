@@ -1,0 +1,11 @@
+Assets/GooglePlayGames.meta
+Assets/PlayServicesResolver.meta
+Assets/GooglePlayGames/
+Assets/PlayServicesResolver/
+*.csproj
+*.sln
+*.userprefs
+Library/
+Temp/
+UnityPackageManager/
+Android Build/

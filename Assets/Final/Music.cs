@@ -15,11 +15,9 @@ public class Music : MonoBehaviour {
 			audioSource = GetComponent<AudioSource> ();
 			isMute = PlayerPrefs.GetInt ("Mute", 0) == 1;
 			audioSource.mute = isMute;
-//			audioSource.Play ();
 		} else {
 			Destroy (gameObject);
 		}
-		Debug.Log ("musa");
 	}
 
 	public void Stop() {
@@ -31,6 +29,7 @@ public class Music : MonoBehaviour {
 		audioSource.Play ();
 	}
 
+	#if UNITY_IOS
 	public void Pause() {
 		audioSource.Pause ();
 	}
@@ -38,6 +37,7 @@ public class Music : MonoBehaviour {
 	public void UnPause() {
 		audioSource.UnPause ();
 	}
+	#endif
 
 	public void Toggle() {
 		isMute = !isMute;
