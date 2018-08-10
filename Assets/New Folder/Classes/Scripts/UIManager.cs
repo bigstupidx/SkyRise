@@ -135,7 +135,7 @@ public class UIManager : MonoBehaviour {
 		GameVariables.Instance.UpdateHighScore (score);
 		gameOverScreen.SetActive(true);
 		if (rateUsState == RateUsState.Remind) {
-			if (GameVariables.Instance.attempts % 20 == 0) {
+			if (GameVariables.Instance.attempts % 5 == 0) {
 				rateUsScreen.SetActive (true);
 			}
 		}
