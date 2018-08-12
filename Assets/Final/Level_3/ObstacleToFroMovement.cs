@@ -14,10 +14,6 @@ public class ObstacleToFroMovement : MonoBehaviour {
 	float leftBound = -5.25f;
 	Rigidbody2D obstacle;
 	Transform obstacleTransform;
-//	[SerializeField]
-//	Vector3 leftScale = new Vector3 (-1f, 1f, 1f);
-//	[SerializeField]
-//	Vector3 rightScale = Vector3.one;
 
 	void Awake() {
 		obstacleTransform = transform;
@@ -26,20 +22,6 @@ public class ObstacleToFroMovement : MonoBehaviour {
 	}
 
 	void FixedUpdate () {
-//		if (movementDirection == MovementDirection.Right) {
-//			if (obstacle.position.x > rightBound) {
-//				Vector3 temp = obstacle.position;
-//				temp.x = leftBound;
-//				obstacle.MovePosition (temp);
-//			}
-//		} else {
-//			if (obstacle.position.x < leftBound) {
-//				Vector3 temp = obstacle.position;
-//				temp.x = rightBound;
-//				obstacle.MovePosition (temp);
-//			}
-//		}
-
 		if (movementDirection == MovementDirection.Right) {
 			if (obstacle.position.x < rightBound) {
 				return;
@@ -55,10 +37,8 @@ public class ObstacleToFroMovement : MonoBehaviour {
 
 	void ToggleDirection() {
 		if (movementDirection == MovementDirection.Right) {
-//			obstacleTransform.localScale = leftScale;
 			movementDirection = MovementDirection.Left;
 		} else {
-//			obstacleTransform.localScale = rightScale;
 			movementDirection = MovementDirection.Right;
 		}
 	}

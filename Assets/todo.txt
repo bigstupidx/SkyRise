@@ -32,7 +32,6 @@ asteroid
 4.1:
 double(8 planets) and keep some planets in center
 
-
 4.2:
 6 planets, asteroids from up and down
 
@@ -40,6 +39,8 @@ double(8 planets) and keep some planets in center
 5.1:
 8 patterns
 2 fans
+
+left
 
 5.2:
 6 moving patterns
@@ -69,6 +70,7 @@ introduce asteroid from bottom
 same
 falling rocks in end
 
+fix asteroid movement of 4.0 and 4.1
 
 9.1:
 add jaw in between

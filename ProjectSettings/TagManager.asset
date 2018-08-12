@@ -10,6 +10,7 @@ TagManager:
   - LevelExit
   - AsteroidTrigger
   - BottomAsteroidTrigger
+  - Level3BottomAsteroidTrigger
   layers:
   - Default
   - TransparentFX

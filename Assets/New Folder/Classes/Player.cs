@@ -14,6 +14,8 @@ public class Player : MonoBehaviour {
 	GameObject asteroidWave;
 	[SerializeField]
 	GameObject bottomAsteroidWave;
+	[SerializeField]
+	GameObject level3BottomAsteroidWave;
 	public static Player instance;
 	GameVariables gameVariables;
 	[SerializeField]
@@ -153,21 +155,18 @@ public class Player : MonoBehaviour {
 //				return;
 //			}
 			PatternManager.instance.SpawnNewPattern ();
-		}
-		else if(c.CompareTag("Score") == true) {
+		} else if (c.CompareTag ("Score") == true) {
 //			GameObject.Destroy(c.gameObject);
-			c.GetComponent<Diamond>().Init(diamondTarget);
-		}
-		else if (c.CompareTag ("AsteroidTrigger") == true) {
+			c.GetComponent<Diamond> ().Init (diamondTarget);
+		} else if (c.CompareTag ("AsteroidTrigger") == true) {
 			Debug.Log (asteroidWave);
 			if (asteroidWave != null) {
 				asteroidWave.SetActive (true);
 			}
-		}
-		else if (c.CompareTag ("BottomAsteroidTrigger") == true) {
-			if (bottomAsteroidWave != null) {
-				bottomAsteroidWave.SetActive (true);
-			}
+		} else if (c.CompareTag ("BottomAsteroidTrigger") == true) {
+			bottomAsteroidWave.SetActive (true);
+		} else if (c.CompareTag ("Level3BottomAsteroidTrigger") == true) {
+			level3BottomAsteroidWave.SetActive (true);
 		}
 	}
 

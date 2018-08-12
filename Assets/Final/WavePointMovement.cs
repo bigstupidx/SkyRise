@@ -19,7 +19,9 @@ public class WavePointMovement : MonoBehaviour {
 	float initialEuler;
 	bool shouldTrackMovement;
 	TrailRenderer trail;
-	
+	[SerializeField]
+	bool shouldLoop;
+
 	void Awake() {
 		trail = GetComponentInChildren<TrailRenderer> ();
 		initialPosition = player.position;
@@ -28,12 +30,16 @@ public class WavePointMovement : MonoBehaviour {
 	}
 
 	void OnEnable() {
+		Init ();
+		StartCoroutine (StartTracking ());
+	}
+
+	void Init() {
 		trail.Clear ();
 		player.MovePosition (initialPosition);
 		player.MoveRotation (initialEuler);
 		currentWavePoint = 0;
 		SetVelocity ();
-		StartCoroutine (StartTracking ());
 	}
 
 	IEnumerator StartTracking() {
@@ -44,12 +50,16 @@ public class WavePointMovement : MonoBehaviour {
 	void Next() {
 		currentWavePoint++;
 		if (currentWavePoint == wavePoints.Length) {
-			shouldTrackMovement = false;
-			trail.Clear ();
-			player.MovePosition (initialPosition);
-			player.MoveRotation (initialEuler);
-			currentWavePoint = 0;
-			StartCoroutine (FalseAfterPhysicsUpdate ());
+			if (!shouldLoop) {
+				shouldTrackMovement = false;
+				trail.Clear ();
+				player.MovePosition (initialPosition);
+				player.MoveRotation (initialEuler);
+				currentWavePoint = 0;
+				StartCoroutine (FalseAfterPhysicsUpdate ());
+			} else {
+				Init ();
+			}
 			return;
 		}
 		SetVelocity ();
