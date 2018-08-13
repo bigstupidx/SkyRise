@@ -41,6 +41,7 @@ public class LaunchScreen : MonoBehaviour {
 
 	public void Play() {
 		Music.instance.Stop ();
+		Time.timeScale = 1f;
 		SceneManager.LoadScene (1);
 	}
 

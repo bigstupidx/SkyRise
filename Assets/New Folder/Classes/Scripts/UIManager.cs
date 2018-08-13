@@ -154,6 +154,7 @@ public class UIManager : MonoBehaviour {
 	}
 
 	void HomeScene() {
+		Time.timeScale = 1f;
 		SceneManager.LoadScene (0);
 		Music.instance.Play ();
 	}

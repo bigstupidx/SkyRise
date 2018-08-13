@@ -9,8 +9,6 @@ TagManager:
   - Score
   - LevelExit
   - AsteroidTrigger
-  - BottomAsteroidTrigger
-  - Level3BottomAsteroidTrigger
   layers:
   - Default
   - TransparentFX

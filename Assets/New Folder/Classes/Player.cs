@@ -10,12 +10,6 @@ public class Player : MonoBehaviour {
 	[SerializeField]
 	Rigidbody2D player;
 	GameState gameState;
-	[SerializeField]
-	GameObject asteroidWave;
-	[SerializeField]
-	GameObject bottomAsteroidWave;
-	[SerializeField]
-	GameObject level3BottomAsteroidWave;
 	public static Player instance;
 	GameVariables gameVariables;
 	[SerializeField]
@@ -78,6 +72,7 @@ public class Player : MonoBehaviour {
 	void Update() {
 		if (isGameComplete) {
 			if (Input.GetMouseButtonDown (0) && !UIManager.instance.rateUsScreen.activeSelf) {
+				Time.timeScale = 1f;
 				SceneManager.LoadScene (0);
 			}
 		}
@@ -107,14 +102,12 @@ public class Player : MonoBehaviour {
 				if (gameState == GameState.ShouldMove) {
 					FollowPlayer.instance.Normal ();
 				} else {
-//					FollowPlayer.instance.Follow ();
 					FollowPlayer.instance.Fasten ();
 				}
 				GameManager.instance.IncrementScore ();
 			} else {
 				FollowPlayer.instance.Follow ();
 			}
-//			ChangeVelocity ();
 		}
 	}
 
@@ -126,47 +119,26 @@ public class Player : MonoBehaviour {
 	void Rotate () {
 		player.angularVelocity = gameVariables.rotationSpeed;
 		player.velocity = Vector2.zero;
-
-//		FollowPlayer.instance.Move ();
-//		player.rotation += GameVariables.instance.rotationSpeed;
-	}
-
-	void ChangeVelocity() {
-//		player.velocity = GameVariables.instance.movementSpeed * new Vector2 (player.transform.up.x, player.transform.up.y);
 	}
 
 	void Move () {
 		player.angularVelocity = 0f;
 		player.velocity = gameVariables.movementSpeed * new Vector2 (player.transform.up.x, player.transform.up.y);
-//		FollowPlayer.instance.Follow ();
-//		Vector2 v = new Vector2 (player.transform.up.x, player.transform.up.y);
-//		player.position += v * GameVariables.instance.movementSpeed;
 	}
 
 	void OnTriggerEnter2D(Collider2D c) {
 		if (c.CompareTag ("Obstacle") == true) {
-			GameManager.instance.isGameOver = true;
-			UIManager.instance.ContinueScreen ();
+//			GameManager.instance.isGameOver = true;
+//			UIManager.instance.ContinueScreen ();
 		} else if (c.CompareTag ("LevelExit") == true) {
 			Destroy (c.GetComponent<BoxCollider2D> ());
 			GameManager.instance.ChangeThemeNow ();
 			gameVariables.IncreaseRotationSpeed ();
-//			if(GameManager.instance.isGameOver) {
-//				return;
-//			}
 			PatternManager.instance.SpawnNewPattern ();
 		} else if (c.CompareTag ("Score") == true) {
-//			GameObject.Destroy(c.gameObject);
 			c.GetComponent<Diamond> ().Init (diamondTarget);
 		} else if (c.CompareTag ("AsteroidTrigger") == true) {
-			Debug.Log (asteroidWave);
-			if (asteroidWave != null) {
-				asteroidWave.SetActive (true);
-			}
-		} else if (c.CompareTag ("BottomAsteroidTrigger") == true) {
-			bottomAsteroidWave.SetActive (true);
-		} else if (c.CompareTag ("Level3BottomAsteroidTrigger") == true) {
-			level3BottomAsteroidWave.SetActive (true);
+			c.GetComponent<AsteroidTrigger> ().Set ();
 		}
 	}
 
@@ -176,7 +148,6 @@ public class Player : MonoBehaviour {
 		}
 		GameManager.instance.isGameOver = true;
 		UIManager.instance.ContinueScreen ();
-//		SceneManager.LoadScene (0);
 	}
 
 	public void UpdateBall() {

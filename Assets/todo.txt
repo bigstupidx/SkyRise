@@ -1,90 +1,35 @@
-triger ads atfer 5 game overs: rewarded video with no reward instead of interstitial video
-
 1.1:
-replaces tiles with level 5 tiles
-6 tiles
-3 chakri
+chakri direction inverse
 
-1.2:
-4 tiles
-7 level pankha: 1
-chakri in the end
-
-
-2.1:
-reduce size of obstacle to half
-increase count to 2
-
-2.2:
-level 5 pattern once before
-remains same
-
+2.1, 2.2:
+player shouldn't be able to go from out
 
 3.1:
-double
-level 9 jaw between
-
-3.2:
-remains same
-asteroid
-
+jaw scale increase
 
 4.1:
-double(8 planets) and keep some planets in center
+middle planet will rotate and move to fro
 
-4.2:
-6 planets, asteroids from up and down
+7.1, 7.2:
+player shouldnt be able to go from out
 
+10.1:
+asteroid continuous
+one asteroid from bottom only
 
-5.1:
-8 patterns
-2 fans
-
-left
-
-5.2:
-6 moving patterns
-no crabs
-
-6.1:
-same
-
-6.2:
-fans on left right: 2 times
-
-7.1:
-same
-3 patterns above
-repetitive asteroid
-
-7.2:
-jaws
-2 patterns same
-repetitive asteroid
-
-8.1:
-same
-introduce asteroid from bottom
-
-8.2:
-same
-falling rocks in end
-
-fix asteroid movement of 4.0 and 4.1
-
-9.1:
-add jaw in between
+10.2:
+asteroid continuous
+asteroid from above also
+upar pattern valla niche bhi aaega
 
 
-9.2:
-4 asteroids from bottom in similar way as falling rocks
-
-
-10:1:
+no 2 same levels should come continuous
+instantiate destroy code required?
 
 
 
-
+check wavepoint target angle for trail level 4
+check asteroid trigger value of level 10
 preload rewarded inter on completion/start: show video button in shop(no need to go and come back)
 update leaderboard icon android
 
