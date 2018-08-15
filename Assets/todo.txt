@@ -1,4 +1,7 @@
-
+fix wavepoint cs
+add third asteroid in lvl 20
+asteroids disapper
+pattern coloring due to random logic, check other probable issues due to this
 
 
 

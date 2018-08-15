@@ -400,7 +400,6 @@ MonoBehaviour:
   rotationOffset: 220
   shouldLoop: 1
   offset: 10
-  shouldDebug: 0
 --- !u!61 &5436557
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2368,7 +2367,6 @@ MonoBehaviour:
   rotationOffset: 220
   shouldLoop: 1
   offset: 10
-  shouldDebug: 0
 --- !u!1 &38498092
 GameObject:
   m_ObjectHideFlags: 0
@@ -3094,7 +3092,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 49856443}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.15, y: -2.16, z: 0}
+  m_LocalPosition: {x: 3.85, y: -2.16, z: 0}
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2099693833}
@@ -3112,8 +3110,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   viewportX: 1
-  bound: 2
-  boundValue: 3.85
+  minBoundValue: 2.8
+  maxBoundValue: 3.85
 --- !u!212 &49856448
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6012,7 +6010,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 107106120}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.15, y: -4.2, z: 0}
+  m_LocalPosition: {x: -3.85, y: -4.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 884872789}
@@ -6030,8 +6028,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   viewportX: 0
-  bound: 1
-  boundValue: -3.85
+  minBoundValue: -3.85
+  maxBoundValue: -2.8
 --- !u!212 &107106123
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13640,7 +13638,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 285893379}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.15, y: -4.2, z: 0}
+  m_LocalPosition: {x: 3.85, y: -4.2, z: 0}
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2099693833}
@@ -13658,8 +13656,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   viewportX: 1
-  bound: 2
-  boundValue: 3.85
+  minBoundValue: 2.8
+  maxBoundValue: 3.85
 --- !u!212 &285893384
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -14974,7 +14972,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 306553415}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.15, y: -0.119999886, z: 0}
+  m_LocalPosition: {x: 3.85, y: -0.119999886, z: 0}
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children:
   - {fileID: 1654704192}
@@ -14993,8 +14991,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   viewportX: 1
-  bound: 2
-  boundValue: 3.85
+  minBoundValue: 2.8
+  maxBoundValue: 3.85
 --- !u!212 &306553418
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -16408,7 +16406,6 @@ MonoBehaviour:
   rotationOffset: 220
   shouldLoop: 1
   offset: 10
-  shouldDebug: 0
 --- !u!61 &323766693
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -17377,7 +17374,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 340170818}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.15, y: -0.119999886, z: 0}
+  m_LocalPosition: {x: 3.85, y: -0.119999886, z: 0}
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children:
   - {fileID: 1737345088}
@@ -17396,8 +17393,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   viewportX: 1
-  bound: 2
-  boundValue: 3.85
+  minBoundValue: 2.8
+  maxBoundValue: 3.85
 --- !u!212 &340170821
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -19199,7 +19196,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 388248524}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.15, y: -0.12, z: 0}
+  m_LocalPosition: {x: -3.85, y: -0.12, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 676129561}
@@ -19218,8 +19215,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   viewportX: 0
-  bound: 1
-  boundValue: -3.85
+  minBoundValue: -3.85
+  maxBoundValue: -2.8
 --- !u!212 &388248527
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -25562,7 +25559,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   patterns:
-  - {fileID: 26624063}
+  - {fileID: 1708913050}
   - {fileID: 884398953}
   - {fileID: 51763391}
   - {fileID: 1044712143}
@@ -25581,7 +25578,7 @@ MonoBehaviour:
   - {fileID: 1808598572}
   - {fileID: 295337835}
   - {fileID: 577437156}
-  - {fileID: 1708913050}
+  - {fileID: 26624063}
 --- !u!1 &525162241
 GameObject:
   m_ObjectHideFlags: 0
@@ -32156,7 +32153,6 @@ MonoBehaviour:
   rotationOffset: 220
   shouldLoop: 1
   offset: 1
-  shouldDebug: 0
 --- !u!61 &665637534
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -33746,7 +33742,6 @@ MonoBehaviour:
   rotationOffset: 220
   shouldLoop: 0
   offset: 1
-  shouldDebug: 0
 --- !u!50 &700768785
 Rigidbody2D:
   serializedVersion: 4
@@ -45167,7 +45162,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 917222137}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.15, y: -0.12, z: 0}
+  m_LocalPosition: {x: -3.85, y: -0.12, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1683291806}
@@ -45230,8 +45225,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   viewportX: 0
-  bound: 1
-  boundValue: -3.85
+  minBoundValue: -3.85
+  maxBoundValue: -2.8
 --- !u!1 &921484669
 GameObject:
   m_ObjectHideFlags: 0
@@ -49046,7 +49041,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 993450510}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.15, y: -4.2, z: 0}
+  m_LocalPosition: {x: -3.85, y: -4.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2099693833}
@@ -49064,8 +49059,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   viewportX: 0
-  bound: 1
-  boundValue: -3.85
+  minBoundValue: -3.85
+  maxBoundValue: -2.8
 --- !u!212 &993450515
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -52226,7 +52221,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1076163587}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.15, y: -2.16, z: 0}
+  m_LocalPosition: {x: 3.85, y: -2.16, z: 0}
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 884872789}
@@ -52244,8 +52239,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   viewportX: 1
-  bound: 2
-  boundValue: 3.85
+  minBoundValue: 2.8
+  maxBoundValue: 3.85
 --- !u!212 &1076163590
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -53781,7 +53776,6 @@ MonoBehaviour:
   rotationOffset: 220
   shouldLoop: 0
   offset: 1
-  shouldDebug: 0
 --- !u!50 &1108100789
 Rigidbody2D:
   serializedVersion: 4
@@ -54085,7 +54079,6 @@ MonoBehaviour:
   rotationOffset: 220
   shouldLoop: 1
   offset: 1
-  shouldDebug: 0
 --- !u!61 &1111956251
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -54330,7 +54323,6 @@ MonoBehaviour:
   rotationOffset: 220
   shouldLoop: 1
   offset: 10
-  shouldDebug: 0
 --- !u!61 &1114175067
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -57790,7 +57782,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1214301830}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.15, y: -0.12, z: 0}
+  m_LocalPosition: {x: -3.85, y: -0.12, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1757730645}
@@ -57809,8 +57801,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   viewportX: 0
-  bound: 1
-  boundValue: -3.85
+  minBoundValue: -3.85
+  maxBoundValue: -2.8
 --- !u!212 &1214301833
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -58947,7 +58939,6 @@ MonoBehaviour:
   rotationOffset: 220
   shouldLoop: 1
   offset: 10
-  shouldDebug: 0
 --- !u!61 &1247426601
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -59280,7 +59271,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1252509712}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.15, y: -4.2, z: 0}
+  m_LocalPosition: {x: 3.85, y: -4.2, z: 0}
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1150203071}
@@ -59298,8 +59289,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   viewportX: 1
-  bound: 2
-  boundValue: 3.85
+  minBoundValue: 2.8
+  maxBoundValue: 3.85
 --- !u!212 &1252509715
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -60651,7 +60642,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1279865758}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.15, y: -2.16, z: 0}
+  m_LocalPosition: {x: -3.85, y: -2.16, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1150203071}
@@ -60669,8 +60660,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   viewportX: 0
-  bound: 1
-  boundValue: -3.85
+  minBoundValue: -3.85
+  maxBoundValue: -2.8
 --- !u!212 &1279865761
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -61191,7 +61182,6 @@ MonoBehaviour:
   rotationOffset: 220
   shouldLoop: 1
   offset: 1
-  shouldDebug: 0
 --- !u!50 &1288633884
 Rigidbody2D:
   serializedVersion: 4
@@ -61514,7 +61504,6 @@ MonoBehaviour:
   rotationOffset: 220
   shouldLoop: 1
   offset: 1
-  shouldDebug: 0
 --- !u!50 &1292368789
 Rigidbody2D:
   serializedVersion: 4
@@ -62628,7 +62617,6 @@ MonoBehaviour:
   rotationOffset: 220
   shouldLoop: 1
   offset: 1
-  shouldDebug: 0
 --- !u!50 &1311734822
 Rigidbody2D:
   serializedVersion: 4
@@ -63201,7 +63189,6 @@ MonoBehaviour:
   rotationOffset: 220
   shouldLoop: 1
   offset: 10
-  shouldDebug: 0
 --- !u!61 &1320219689
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -69388,7 +69375,6 @@ MonoBehaviour:
   rotationOffset: 220
   shouldLoop: 1
   offset: 10
-  shouldDebug: 0
 --- !u!50 &1443935423
 Rigidbody2D:
   serializedVersion: 4
@@ -71920,7 +71906,6 @@ MonoBehaviour:
   rotationOffset: 220
   shouldLoop: 1
   offset: 10
-  shouldDebug: 0
 --- !u!61 &1500020030
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -77892,7 +77877,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1594864172}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.15, y: -0.119999886, z: 0}
+  m_LocalPosition: {x: 3.85, y: -0.119999886, z: 0}
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children:
   - {fileID: 1550547793}
@@ -77911,8 +77896,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   viewportX: 1
-  bound: 2
-  boundValue: 3.85
+  minBoundValue: 2.8
+  maxBoundValue: 3.85
 --- !u!212 &1594864177
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -79660,7 +79645,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1635854187}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.15, y: -2.16, z: 0}
+  m_LocalPosition: {x: -3.85, y: -2.16, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 884872789}
@@ -79678,8 +79663,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   viewportX: 0
-  bound: 1
-  boundValue: -3.85
+  minBoundValue: -3.85
+  maxBoundValue: -2.8
 --- !u!212 &1635854190
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -81529,7 +81514,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1670981014}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.15, y: -2.16, z: 0}
+  m_LocalPosition: {x: 3.85, y: -2.16, z: 0}
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1150203071}
@@ -81547,8 +81532,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   viewportX: 1
-  bound: 2
-  boundValue: 3.85
+  minBoundValue: 2.8
+  maxBoundValue: 3.85
 --- !u!212 &1670981017
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -82572,7 +82557,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1687991039}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.15, y: -2.16, z: 0}
+  m_LocalPosition: {x: -3.85, y: -2.16, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2099693833}
@@ -82590,8 +82575,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   viewportX: 0
-  bound: 1
-  boundValue: -3.85
+  minBoundValue: -3.85
+  maxBoundValue: -2.8
 --- !u!212 &1687991044
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -83957,7 +83942,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1716916055}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.15, y: -4.2, z: 0}
+  m_LocalPosition: {x: -3.85, y: -4.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1150203071}
@@ -83975,8 +83960,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   viewportX: 0
-  bound: 1
-  boundValue: -3.85
+  minBoundValue: -3.85
+  maxBoundValue: -2.8
 --- !u!212 &1716916058
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -85459,7 +85444,6 @@ MonoBehaviour:
   rotationOffset: 220
   shouldLoop: 1
   offset: 10
-  shouldDebug: 0
 --- !u!61 &1751051372
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -85600,7 +85584,6 @@ MonoBehaviour:
   rotationOffset: 220
   shouldLoop: 1
   offset: 10
-  shouldDebug: 0
 --- !u!61 &1752659870
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -97282,7 +97265,6 @@ MonoBehaviour:
   rotationOffset: 220
   shouldLoop: 1
   offset: 1
-  shouldDebug: 0
 --- !u!50 &1989612104
 Rigidbody2D:
   serializedVersion: 4
@@ -100951,7 +100933,6 @@ MonoBehaviour:
   rotationOffset: 220
   shouldLoop: 1
   offset: 1
-  shouldDebug: 0
 --- !u!61 &2071418830
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -102697,7 +102678,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2104355681}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.15, y: -4.2, z: 0}
+  m_LocalPosition: {x: 3.85, y: -4.2, z: 0}
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 884872789}
@@ -102715,8 +102696,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   viewportX: 1
-  bound: 2
-  boundValue: 3.85
+  minBoundValue: 2.8
+  maxBoundValue: 3.85
 --- !u!212 &2104355684
 SpriteRenderer:
   m_ObjectHideFlags: 0

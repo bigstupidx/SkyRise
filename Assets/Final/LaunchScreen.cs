@@ -27,6 +27,7 @@ public class LaunchScreen : MonoBehaviour {
 		if (LaunchManager.IsFirstSession) {
 			PlayerPrefs.SetInt ("Launch", 1);
 			audioSource.Stop ();
+			Time.timeScale = 1f;
 			SceneManager.LoadScene (1);
 		}
 		#endif

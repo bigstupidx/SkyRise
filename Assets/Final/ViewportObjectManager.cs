@@ -14,7 +14,8 @@ public class ViewportObjectManager : MonoBehaviour {
 			Vector3 position = viewportObject.transform.position;
 			position.x = viewportObject.viewportX;
 			position.x = mainCamera.ViewportToWorldPoint (position).x;
-			if (viewportObject.bound == ViewportBound.Right) {
+			position.x = Mathf.Clamp (position.x, viewportObject.minBoundValue, viewportObject.maxBoundValue);
+			/*if (viewportObject.bound == ViewportBound.Right) {
 				if (position.x < viewportObject.boundValue) {
 					position.x = viewportObject.boundValue;
 				}
@@ -23,7 +24,7 @@ public class ViewportObjectManager : MonoBehaviour {
 				if (position.x > viewportObject.boundValue) {
 					position.x = viewportObject.boundValue;
 				}
-			}
+			}*/
 			viewportObject.transform.position = position;
 		}
 	}
