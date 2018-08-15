@@ -19,7 +19,7 @@ public class PatternManager : MonoBehaviour {
 	}
 
 	void SetPatternOrder() {
-		int count = patterns.Length;
+		int count = patterns.Length - 1;
 		int temp = 0;
 		while (temp < count) {
 			indices.Add (temp);
@@ -40,6 +40,7 @@ public class PatternManager : MonoBehaviour {
 			indices.Remove (randomIndex);
 			temp++;
 		}
+		patternsList.Add (patterns [temp]);
 		patterns = patternsList.ToArray ();
 	}
 

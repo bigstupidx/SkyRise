@@ -1,37 +1,21 @@
-1.1:
-chakri direction inverse
-
-2.1, 2.2:
-player shouldn't be able to go from out
-
-3.1:
-jaw scale increase
-
-4.1:
-middle planet will rotate and move to fro
-
-7.1, 7.2:
-player shouldnt be able to go from out
-
-10.1:
-asteroid continuous
-one asteroid from bottom only
-
-10.2:
-asteroid continuous
-asteroid from above also
-upar pattern valla niche bhi aaega
-
-
-instantiate destroy code required?
 
 
 
-check wavepoint target angle for trail level 4
-check asteroid trigger value of level 10
+
+
+
+
+
+
+
+
+
+
+
+
 preload rewarded inter on completion/start: show video button in shop(no need to go and come back)
 update leaderboard icon android
-
+instantiate destroy code required?
 
 visuals: 0 to 10
 obstacles: 11 to 17

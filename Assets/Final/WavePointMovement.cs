@@ -23,6 +23,7 @@ public class WavePointMovement : MonoBehaviour {
 	bool shouldLoop;
 	[SerializeField]
 	int offset = 1;
+	bool shouldDebug;
 
 	void Awake() {
 		trail = GetComponentInChildren<TrailRenderer> ();
@@ -36,16 +37,20 @@ public class WavePointMovement : MonoBehaviour {
 	}
 
 	void Init() {
+		player.velocity = Vector2.zero;
+		player.angularVelocity = 0f;
+		if(shouldDebug)
+		Debug.Log ("init");
 		trail.Clear ();
-		player.MovePosition (initialPosition);
-		player.MoveRotation (initialEuler);
-		currentWavePoint = 0;
-		SetVelocity ();
 		StartCoroutine (StartTracking ());
 	}
 
 	IEnumerator StartTracking() {
 		yield return new WaitForFixedUpdate ();
+		player.MovePosition (initialPosition);
+		player.MoveRotation (initialEuler);
+		currentWavePoint = 0;
+		SetVelocity (true);
 		shouldTrackMovement = true;
 	}
 
@@ -73,11 +78,24 @@ public class WavePointMovement : MonoBehaviour {
 		gameObject.SetActive (false);
 	}
 
-	void SetVelocity() {
+	void SetVelocity(bool isInit = false) {
 		player.velocity = ((Vector2)wavePoints [currentWavePoint].position - player.position).normalized * speed;
-		int frameCount = (int)(Vector2.Distance ((Vector2)wavePoints [currentWavePoint].position, player.position) / movementInOnePhysicsFrame) + 1;
-		float eulerDifference = ((wavePoints [currentWavePoint].eulerAngles.z + rotationOffset) % 360 - player.transform.eulerAngles.z) % 360;
-		rotationValue = eulerDifference / (float)frameCount;
+		if (isInit && shouldDebug) {
+			Debug.Log (player.velocity);
+			Debug.Log (wavePoints [currentWavePoint].position);
+			Debug.Log (player.position);
+		}
+		if (isInit) {
+			rotationValue = 0f;
+		} else {
+			int frameCount = (int)(Vector2.Distance ((Vector2)wavePoints [currentWavePoint].position, player.position) / movementInOnePhysicsFrame) + 1;
+			float eulerDifference = ((wavePoints [currentWavePoint].eulerAngles.z + rotationOffset) % 360 - player.transform.eulerAngles.z) % 360;
+			rotationValue = eulerDifference / (float)frameCount;
+		}
+		if (shouldDebug) {
+			Debug.Log (player.velocity);
+			Debug.Log (rotationValue);
+		}
 	}
 
 	void FixedUpdate() {

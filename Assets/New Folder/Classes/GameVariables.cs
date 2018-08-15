@@ -52,7 +52,7 @@ public class GameVariables {
 	}
 
 	public void IncreaseRotationSpeed() {
-		rotationSpeed += 10f;
+		rotationSpeed += 5f;
 	}
 
 	public void ToggleRotationDirection() {
