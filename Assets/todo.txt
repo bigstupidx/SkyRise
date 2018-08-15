@@ -23,7 +23,6 @@ asteroid from above also
 upar pattern valla niche bhi aaega
 
 
-no 2 same levels should come continuous
 instantiate destroy code required?
 
 
