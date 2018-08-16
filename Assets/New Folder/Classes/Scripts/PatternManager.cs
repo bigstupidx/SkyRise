@@ -9,7 +9,6 @@ public class PatternManager : MonoBehaviour {
 	int nextPattern;
 	int visiblePatterns = 3;
 	float gap = 1.5f;
-	List<int> indices = new List<int> ();
 
 	public static PatternManager instance;
 
@@ -21,6 +20,7 @@ public class PatternManager : MonoBehaviour {
 	void SetPatternOrder() {
 		int count = patterns.Length - 1;
 		int temp = 0;
+		List<int> indices = new List<int> ();
 		while (temp < count) {
 			indices.Add (temp);
 			temp++;
@@ -30,7 +30,7 @@ public class PatternManager : MonoBehaviour {
 		int randomIndex = -1;
 		int notAllowedValue = -1;
 		while (temp < count) {
-			randomIndex = FindRandomIndex (notAllowedValue);
+			randomIndex = FindRandomIndex (indices, notAllowedValue);
 			if (randomIndex % 2 == 0) {
 				notAllowedValue = randomIndex + 1;
 			} else {
@@ -44,13 +44,14 @@ public class PatternManager : MonoBehaviour {
 		patterns = patternsList.ToArray ();
 	}
 
-	int FindRandomIndex(int notAllowedValue = -1) {
-		int randomNumber = indices [Random.Range (0, indices.Count)];
-		if (randomNumber != notAllowedValue) {
-			return randomNumber;
-		} else {
-			return FindRandomIndex (notAllowedValue);
+	int FindRandomIndex(List<int> indices, int notAllowedValue = -1) {
+		List<int> newIndices = new List<int> ();
+		foreach (int index in indices) {
+			if (index != notAllowedValue) {
+				newIndices.Add (index);
+			}
 		}
+		return newIndices [Random.Range (0, newIndices.Count)];
 	}
 
 	void Start() {

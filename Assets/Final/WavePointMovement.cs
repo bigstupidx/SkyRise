@@ -12,20 +12,19 @@ public class WavePointMovement : MonoBehaviour {
 	[SerializeField]
 	float speed;
 	float movementInOnePhysicsFrame;
-	[SerializeField]
-	float rotationOffset;
 	float rotationValue;
 	Vector3 initialPosition;
 	float initialEuler;
 	bool shouldTrackMovement;
 	TrailRenderer trail;
 	[SerializeField]
-	bool shouldLoop;
+	bool shouldLoop = true;
 	[SerializeField]
 	int offset = 1;
-	bool shouldDebug;
+	GameObject obstacle;
 
 	void Awake() {
+		obstacle = gameObject;
 		trail = GetComponentInChildren<TrailRenderer> ();
 		initialPosition = player.position;
 		initialEuler = player.rotation;
@@ -37,18 +36,18 @@ public class WavePointMovement : MonoBehaviour {
 	}
 
 	void Init() {
+		shouldTrackMovement = false;
 		player.velocity = Vector2.zero;
 		player.angularVelocity = 0f;
-		if(shouldDebug)
-		Debug.Log ("init");
 		trail.Clear ();
 		StartCoroutine (StartTracking ());
 	}
 
 	IEnumerator StartTracking() {
 		yield return new WaitForFixedUpdate ();
-		player.MovePosition (initialPosition);
-		player.MoveRotation (initialEuler);
+		obstacle.SetActive (true);
+		player.position = initialPosition;
+		player.rotation = initialEuler;
 		currentWavePoint = 0;
 		SetVelocity (true);
 		shouldTrackMovement = true;
@@ -58,14 +57,10 @@ public class WavePointMovement : MonoBehaviour {
 		currentWavePoint++;
 		if (currentWavePoint == wavePoints.Length) {
 			if (!shouldLoop) {
-				shouldTrackMovement = false;
-				trail.Clear ();
-				player.MovePosition (initialPosition);
-				player.MoveRotation (initialEuler);
-				currentWavePoint = 0;
-				StartCoroutine (FalseAfterPhysicsUpdate ());
+//				shouldTrackMovement = false;
+				gameObject.SetActive (false);
+//				StartCoroutine (FalseAfterPhysicsUpdate ());
 			} else {
-				shouldTrackMovement = false;
 				Init ();
 			}
 			return;
@@ -80,21 +75,13 @@ public class WavePointMovement : MonoBehaviour {
 
 	void SetVelocity(bool isInit = false) {
 		player.velocity = ((Vector2)wavePoints [currentWavePoint].position - player.position).normalized * speed;
-		if (isInit && shouldDebug) {
-			Debug.Log (player.velocity);
-			Debug.Log (wavePoints [currentWavePoint].position);
-			Debug.Log (player.position);
-		}
 		if (isInit) {
 			rotationValue = 0f;
 		} else {
 			int frameCount = (int)(Vector2.Distance ((Vector2)wavePoints [currentWavePoint].position, player.position) / movementInOnePhysicsFrame) + 1;
-			float eulerDifference = ((wavePoints [currentWavePoint].eulerAngles.z + rotationOffset) % 360 - player.transform.eulerAngles.z) % 360;
+			float eulerDifference = PositiveRotation (wavePoints [currentWavePoint].eulerAngles.z) - PositiveRotation (wavePoints [currentWavePoint - 1].eulerAngles.z);
+			eulerDifference = Acute (eulerDifference);
 			rotationValue = eulerDifference / (float)frameCount;
-		}
-		if (shouldDebug) {
-			Debug.Log (player.velocity);
-			Debug.Log (rotationValue);
 		}
 	}
 
@@ -105,6 +92,23 @@ public class WavePointMovement : MonoBehaviour {
 				Next ();
 			}
 		}
+	}
+
+	float PositiveRotation(float value) {
+		while (value < 0f) {
+			value += 360f;
+		}
+		value %= 360f;
+		return value;
+	}
+
+	float Acute(float value) {
+		if (value > 180f) {
+			value -= 360f;
+		} else if (value < -180f) {
+			value += 360f;
+		}
+		return value;
 	}
 
 }

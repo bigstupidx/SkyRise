@@ -1,24 +1,8 @@
-fix wavepoint cs
-add third asteroid in lvl 20
-asteroids disapper
-pattern coloring due to random logic, check other probable issues due to this
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-preload rewarded inter on completion/start: show video button in shop(no need to go and come back)
 update leaderboard icon android
+make one manager; move all objects using that manager so that only one update, fixed update, continuous coroutine; move objects of only active level
 instantiate destroy code required?
+continue code for preload rewarded inter on completion/start: show video button in shop(no need to go and come back)
+
 
 visuals: 0 to 10
 obstacles: 11 to 17

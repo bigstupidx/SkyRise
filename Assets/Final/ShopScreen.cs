@@ -14,10 +14,18 @@ public class ShopScreen : MonoBehaviour {
 	GameObject notEnoughDiamonds;
 	[SerializeField]
 	GameObject adsButton;
+	public static ShopScreen instance;
 
 	void Awake() {
+		instance = this;
 		adsButton.SetActive (false);
 		shop = Shop.Instance;
+	}
+
+	public void ActivateAdsButton() {
+		if (isActiveAndEnabled) {
+			adsButton.SetActive (true);
+		}
 	}
 
 	void OnEnable() {
